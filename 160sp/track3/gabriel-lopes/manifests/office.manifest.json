@@ -2,8 +2,8 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "ka://manifests/office.v1",
   "title": "Office Parameter Manifest",
-  "description": "Five parameters an LLM front-end may safely modify for the office scene.",
-  "infinigen_entity": "infinigen.entities.Office",
+  "description": "Five source-informed parameters an LLM front-end may safely modify for a proposed office scene, since current Infinigen does not provide a working standalone office room generator in this pipeline.",
+  "infinigen_entity": "source-informed proposal; no working standalone Semantics.Office generator in current indoor constraint path",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -37,15 +37,15 @@
       "citation": "Vartanian et al. (2015); Joye (2007)",
       "rationale": "Openness is included because perceived enclosure and spatial prospect are meaningful environmental-psychology constructs. This parameter gives the LLM a safe high-level spatial control without exposing wall segment IDs or solver constraints."
     },
-    "wall_color_hue": {
-      "type": "number",
-      "minimum": 0.0,
-      "maximum": 1.0,
-      "default": 0.4,
-      "unit": "normalised hue",
-      "description": "Normalized wall color hue control for the office.",
-      "citation": "Ulrich (1991)",
-      "rationale": "Wall color hue is included as a cautious high-level interior-design control related to perceived atmosphere and wellness. This is the weakest construct in the office manifest because Ulrich supports interior design and wellness broadly, not this exact hue scale."
+    "biophilia_count": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 6,
+      "default": 1,
+      "unit": "count",
+      "description": "Number of plant or nature-related entities placed in the office.",
+      "citation": "Kaplan & Kaplan (1989); Ulrich (1991); Joye (2007)",
+      "rationale": "Biophilia count is included because even a work-focused room can vary in the amount of restorative nature cueing it contains. This is a stronger and more defensible environmental-psychology parameter than a free hue slider, and the bounded count keeps the control interpretable."
     },
     "visual_complexity": {
       "type": "number",
@@ -60,9 +60,6 @@
   },
   "required": [
     "ceiling_height_m",
-    "task_lighting",
-    "openness",
-    "wall_color_hue",
-    "visual_complexity"
+    "task_lighting"
   ]
 }

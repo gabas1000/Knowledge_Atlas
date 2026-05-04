@@ -3,7 +3,7 @@
   "$id": "ka://manifests/living_room.v1",
   "title": "Living Room Parameter Manifest",
   "description": "Five parameters an LLM front-end may safely modify for the living_room scene.",
-  "infinigen_entity": "infinigen.entities.LivingRoom",
+  "infinigen_entity": "current Infinigen tag restriction: Semantics.LivingRoom via infinigen_examples.generate_indoors",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -60,9 +60,6 @@
   },
   "required": [
     "ceiling_height_m",
-    "daylight_intensity",
-    "wall_warmth_index",
-    "furniture_density",
-    "biophilia_count"
+    "daylight_intensity"
   ]
 }
