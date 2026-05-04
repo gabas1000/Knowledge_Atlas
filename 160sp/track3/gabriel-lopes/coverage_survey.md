@@ -53,7 +53,7 @@ Both hallway runs were attempted live at seeds `0` and `17`, but both failed in 
 
 ### office
 
-Office is my assigned room, but current Infinigen does not provide a working standalone office generator in the active indoor constraint path, so both office runs correctly produced fallback stubs instead of real rooms. Because of that, I do not have a live office hierarchy and cannot honestly claim one. The office parameters here should be treated as a source-informed proposal built from the course fallback signature plus office-related concepts that do exist in the codebase, such as desks, monitors, lamps, shelving, and `OfficeChairFactory`/`OfficeShelfItem` semantics. The most useful controls still appear to be `ceiling_height_m`, `task_lighting`, `openness`, `wall_color_hue`, and `visual_complexity`, but they are not live-validated against a generated office scene in this version.
+Office is my assigned room, but current Infinigen does not provide a working standalone office generator in the active indoor constraint path, so both office runs correctly produced fallback stubs instead of real rooms. Because of that, I do not have a live office hierarchy and cannot honestly claim one. The office parameters here should be treated as a source-informed proposal built from the course fallback signature plus office-related concepts that do exist in the codebase, such as desks, monitors, lamps, shelving, and `OfficeChairFactory`/`OfficeShelfItem` semantics. The most useful controls still appear to be `ceiling_height_m`, `task_lighting`, `openness`, `biophilia_count`, and `visual_complexity`, but they are not live-validated against a generated office scene in this version.
 
 ## Bottom Line
 
