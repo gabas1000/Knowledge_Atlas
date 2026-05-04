@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ka://manifests/living_room.v1",
+  "title": "Living Room Parameter Manifest",
+  "description": "Five parameters an LLM front-end may safely modify for the living_room scene.",
+  "infinigen_entity": "infinigen.entities.LivingRoom",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "ceiling_height_m": {
+      "type": "number",
+      "minimum": 2.0,
+      "maximum": 3.5,
+      "default": 2.7,
+      "unit": "m",
+      "description": "Floor-to-ceiling clear height of the living room.",
+      "citation": "Meyers-Levy & Zhu (2007); Vartanian et al. (2015)",
+      "rationale": "Ceiling height is included because it changes perceived spaciousness and enclosure. Meyers-Levy and Zhu motivate ceiling height as a cognitive-processing variable, while Vartanian et al. connect ceiling height and perceived enclosure to beauty judgments and approach-avoidance decisions."
+    },
+    "daylight_intensity": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "default": 0.6,
+      "unit": "normalised",
+      "description": "Scalar on daylight or sun-light contribution in the room.",
+      "citation": "Kaplan & Kaplan (1989); Münch et al. (2020)",
+      "rationale": "Daylight is included because natural light and natural environmental exposure are tied to restoration, alertness, mood, circadian regulation, and comfort. The 0.0 to 1.0 range is a normalized generator-facing control rather than a direct lux value from the literature."
+    },
+    "wall_warmth_index": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "default": 0.5,
+      "unit": "normalised",
+      "description": "0 = cooler palette / harder material feel; 1 = warmer palette / softer material feel.",
+      "citation": "Ulrich (1991)",
+      "rationale": "Wall warmth is included as a high-level interior-design control related to perceived comfort and wellness. This parameter should be treated as a design abstraction, not as a direct empirical color-temperature scale."
+    },
+    "furniture_density": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "default": 0.4,
+      "unit": "normalised",
+      "description": "Scalar on furniture-placement density in the living room.",
+      "citation": "Joye (2007)",
+      "rationale": "Furniture density is included because it changes clutter, crowding, visual complexity, and the amount of information in the room. Joye supports the psychological relevance of environmental form and complexity, but the 0.0 to 1.0 range is a bounded generator control."
+    },
+    "biophilia_count": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 8,
+      "default": 2,
+      "unit": "count",
+      "description": "Number of plant or nature-related decorative entities placed in the room.",
+      "citation": "Kaplan & Kaplan (1989); Ulrich (1991); Joye (2007)",
+      "rationale": "Biophilia count is included because plants and nature-related cues are associated with restoration, positive affect, and stress reduction. The 0 to 8 range is a practical scene-design bound that prevents the LLM from overpopulating the room."
+    }
+  },
+  "required": [
+    "ceiling_height_m",
+    "daylight_intensity",
+    "wall_warmth_index",
+    "furniture_density",
+    "biophilia_count"
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ka://manifests/office.v1",
+  "title": "Office Parameter Manifest",
+  "description": "Five parameters an LLM front-end may safely modify for the office scene.",
+  "infinigen_entity": "infinigen.entities.Office",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "ceiling_height_m": {
+      "type": "number",
+      "minimum": 2.4,
+      "maximum": 3.5,
+      "default": 2.7,
+      "unit": "m",
+      "description": "Floor-to-ceiling clear height of the office.",
+      "citation": "Meyers-Levy & Zhu (2007); Vartanian et al. (2015)",
+      "rationale": "Ceiling height is included because it changes perceived openness and enclosure. Meyers-Levy and Zhu motivate ceiling height as a cognitive-processing variable, while Vartanian et al. connect ceiling height and perceived enclosure to beauty judgments and approach-avoidance decisions."
+    },
+    "task_lighting": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "default": 0.7,
+      "unit": "normalised",
+      "description": "Normalized strength of task lighting in the office.",
+      "citation": "Münch et al. (2020)",
+      "rationale": "Task lighting is included because light exposure is relevant to visual comfort, alertness, mood, circadian regulation, and workplace functioning. The 0.0 to 1.0 range is a generator-facing lighting control rather than a direct empirical lux range."
+    },
+    "openness": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "default": 0.5,
+      "unit": "normalised",
+      "description": "Normalized spatial openness of the office layout.",
+      "citation": "Vartanian et al. (2015); Joye (2007)",
+      "rationale": "Openness is included because perceived enclosure and spatial prospect are meaningful environmental-psychology constructs. This parameter gives the LLM a safe high-level spatial control without exposing wall segment IDs or solver constraints."
+    },
+    "wall_color_hue": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "default": 0.4,
+      "unit": "normalised hue",
+      "description": "Normalized wall color hue control for the office.",
+      "citation": "Ulrich (1991)",
+      "rationale": "Wall color hue is included as a cautious high-level interior-design control related to perceived atmosphere and wellness. This is the weakest construct in the office manifest because Ulrich supports interior design and wellness broadly, not this exact hue scale."
+    },
+    "visual_complexity": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "default": 0.3,
+      "unit": "normalised",
+      "description": "Normalized amount of visual detail, objects, and complexity in the office.",
+      "citation": "Kaplan & Kaplan (1989); Joye (2007)",
+      "rationale": "Visual complexity is included because environments vary in how much information they contain, how organized they feel, and how demanding they are to process. The 0.0 to 1.0 range is a bounded generator control rather than a direct empirical complexity scale."
+    }
+  },
+  "required": [
+    "ceiling_height_m",
+    "task_lighting",
+    "openness",
+    "wall_color_hue",
+    "visual_complexity"
+  ]
+}
