@@ -18,10 +18,11 @@ Usage:
     # List parameters without producing a manifest
     python3 extract_infinigen_params.py --room kitchen --inspect
 
-If Infinigen is not installed, falls back to the documented constructor
-signatures shipped in `KNOWN_SIGNATURES` so students can author manifests
-even before completing the smoke test. The fallback is approximate; verify
-against the live Infinigen source once installed.
+If Infinigen is not installed, or if the installed Infinigen version no longer
+exposes the old `infinigen.entities.*` room-constructor API, falls back to the
+documented constructor signatures shipped in `KNOWN_SIGNATURES` so students can
+author manifests even before completing the smoke test. The fallback is
+approximate; verify against the live Infinigen source once installed.
 """
 from __future__ import annotations
 import argparse, inspect, json, sys
@@ -164,7 +165,11 @@ def main() -> int:
         if params is None:
             sys.stderr.write(f"No known signature and no live Infinigen for room={room!r}\n")
             continue
-        source = "introspected from live Infinigen" if live else "fallback (KNOWN_SIGNATURES; install Infinigen for live)"
+        source = (
+            "introspected from live Infinigen"
+            if live
+            else "fallback (current Infinigen does not expose the old infinigen.entities room API; using KNOWN_SIGNATURES)"
+        )
         if args.inspect:
             print(f"\n=== {room} ({source}) ===")
             for name, info in params.items():
