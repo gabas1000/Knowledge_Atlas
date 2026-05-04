@@ -1,0 +1,71 @@
+Track 3 Task 1 - Infinigen Install / Smoke Test Log
+Student: Gabriel Lopes
+Branch: track3/gabriel-lopes
+
+Environment:
+- Created and activated Python virtual environment: ~/venvs/infinigen
+- Cloned Infinigen into: ~/code/infinigen
+- Installed Infinigen in editable mode
+- Installed missing dependencies as needed, including PyYAML
+- Blender version confirmed:
+  Blender 4.5.8 LTS
+
+Original assignment smoke-test command attempted:
+
+python3 -m infinigen_examples.generate_indoors \
+  --task indoor_scene_trial \
+  --output_folder ~/infinigen_out/smoke_test \
+  --seed 0 \
+  --configs singleroom.gin fast_solve.gin \
+  --pipeline_configs local_64GB.gin
+
+Result:
+The current Infinigen CLI did not accept task indoor_scene_trial.
+It reported valid task choices as:
+coarse, populate, fine_terrain, ground_truth, render, mesh_save, export
+
+Second attempt:
+
+python3 -m infinigen_examples.generate_indoors \
+  --task coarse \
+  --output_folder ~/infinigen_out/smoke_test \
+  --seed 0 \
+  --configs singleroom.gin fast_solve.gin \
+  --pipeline_configs local_64GB.gin
+
+Result:
+The current Infinigen CLI did not recognize --pipeline_configs, so that outdated argument was removed.
+
+Successful smoke-test command:
+
+python3 -m infinigen_examples.generate_indoors \
+  --task coarse \
+  --output_folder ~/infinigen_out/smoke_test \
+  --seed 0 \
+  --configs singleroom.gin fast_solve.gin
+
+Successful output evidence:
+
+[execute_tasks] [INFO] | infinigen version 1.19.1
+[logging] [INFO] | [MAIN TOTAL]
+[execute_tasks] [INFO] | Writing output blendfile to /Users/gabrielmirandalopes/infinigen_out/smoke_test/scene.blend
+Info: Saved "scene.blend"
+[logging] [INFO] | [MAIN TOTAL] finished in 0:03:59.914021
+
+Output folder check:
+
+ls ~/infinigen_out/smoke_test
+
+Output files included:
+MaskTag.json
+assets
+optim_records.csv
+optim_records.png
+pipeline_coarse.csv
+polycounts.txt
+scene.blend
+solve_state.json
+version.txt
+
+Conclusion:
+The Infinigen smoke test completed successfully using the current CLI syntax. The original assignment command appears to be outdated for the installed Infinigen version, so I adapted the command based on the accepted task options printed by generate_indoors.py.
