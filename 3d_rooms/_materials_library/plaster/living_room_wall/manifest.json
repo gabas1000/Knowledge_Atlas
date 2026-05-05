@@ -1,0 +1,29 @@
+{
+  "tool": "splat_to_materials.py",
+  "tool_version": "0.1.0-sprint4-scaffold",
+  "splat_source": "/Users/gabrielmirandalopes/track3_workspace/Knowledge_Atlas/160sp/track3/gabriel-lopes/scans/living_room.ply",
+  "region_name": "living_room_wall",
+  "region_bbox": [
+    [
+      -0.79973,
+      -0.684355,
+      0.04965
+    ],
+    [
+      -0.79573,
+      0.699645,
+      0.66165
+    ]
+  ],
+  "target_class": "plaster",
+  "extraction_date_utc": "2026-05-05T01:28:18+00:00",
+  "rendering_convention": "PBR Metallic-Roughness (glTF 2.0)",
+  "channels": {
+    "albedo": "sRGB base colour",
+    "normal": "tangent-space normal map (R=X, G=Y, B=Z)",
+    "roughness": "linear, 0=mirror smooth, 1=fully rough",
+    "metallic": "linear, 0=dielectric, 1=conductor"
+  },
+  "stub": true,
+  "stub_note": "Stub 4x4 placeholder PNGs written; install splat libraries and re-run for real PBR extraction."
+}

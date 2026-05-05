@@ -1,0 +1,12 @@
+{
+  "tool": "splat_to_hdri.py",
+  "tool_version": "0.1.0-sprint4-scaffold",
+  "splat_source": "/Users/gabrielmirandalopes/track3_workspace/Knowledge_Atlas/160sp/track3/gabriel-lopes/scans/living_room.ply",
+  "splat_source_size_bytes": 23029050,
+  "output": "/Users/gabrielmirandalopes/track3_workspace/Knowledge_Atlas/3d_rooms/living_room/lighting.hdr",
+  "extraction_time_seconds": 0.303,
+  "quality_flag": "default",
+  "format": "Radiance HDR (RGBE)",
+  "extraction_method": "spherical_harmonics_per_gaussian",
+  "note": "Stub HDR (8x4 grayscale gradient); install splat libraries and re-run for real bake."
+}

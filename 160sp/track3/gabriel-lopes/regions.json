@@ -1,0 +1,17 @@
+[
+  {
+    "name": "living_room_wall",
+    "bbox": [[-0.79973, -0.684355, 0.04965], [-0.79573, 0.699645, 0.66165]],
+    "target_class": "plaster"
+  },
+  {
+    "name": "living_room_floor",
+    "bbox": [[-0.23506, -0.62771, -0.527289], [-0.23106, 0.84629, 0.572711]],
+    "target_class": "tile"
+  },
+  {
+    "name": "living_room_couch",
+    "bbox": [[-0.75712, -0.705853, 0.05228], [-0.44112, 0.766147, 0.23828]],
+    "target_class": "fabric"
+  }
+]
